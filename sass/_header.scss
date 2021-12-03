@@ -1,4 +1,69 @@
 .header {
   background-color: $color-grey-dark-1;
   grid-column: full-start / col-end 6;
+  background-image: linear-gradient(
+      rgba($color-secondary, 0.9),
+      rgba($color-secondary, 0.9)
+    ),
+    url(../img/hero.jpeg);
+  background-size: cover;
+  padding: 8rem;
+
+  display: grid;
+  grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr;
+  row-gap: 1.5rem;
+  justify-content: center;
+
+  &__logo {
+    height: 3rem;
+    justify-self: center;
+  }
+
+  &__btn {
+    justify-self: start;
+    align-self: flex-start;
+  }
+
+  &__text {
+    color: $color-grey-light-2;
+    font-size: 1.6rem;
+
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    align-items: center;
+    column-gap: 6px;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      height: 1px;
+      background-color: currentColor;
+    }
+  }
+
+  &__logos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    align-items: center;
+    column-gap: 3rem;
+
+    // display: flex;
+    // justify-content: space-evenly;
+
+    img {
+      max-width: 100%;
+      max-height: 3.5rem;
+      filter: brightness(70%);
+    }
+  }
+
+  @media screen and (max-width: $bp-sm) {
+    grid-column: 1/-1;
+  }
+
+  @media screen and (max-width: $bp-xs) {
+    padding: 5rem;
+  }
 }
